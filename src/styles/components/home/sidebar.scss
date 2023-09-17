@@ -21,6 +21,9 @@
     }
 
     &-tabs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
 
         &-container {
             padding: 12px;

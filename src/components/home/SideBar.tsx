@@ -131,10 +131,10 @@ export const SideBar = () => {
                 <p className="home-sidebar-profile-username">{user.username || 'User'}</p>
             </div>
             <div className='home-sidebar-tabs'>
-                <div className='home-sidebar-tabs-container'>
-                    <div className='home-sidebar-tabs-container-main .active-tab'>
+                <div className='home-sidebar-tabs-container active-tab'>
+                    <div className='home-sidebar-tabs-container-main'>
                         <Tasks />
-                        <p className='home-sidebar-tabs-container-main-name active'>Tasks</p>
+                        <p className='home-sidebar-tabs-container-main-name'>Tasks</p>
                     </div>
                     {todoTask > 0 && (<div className='home-sidebar-tabs-container-num'>{todoTask}</div>)}
                 </div>
