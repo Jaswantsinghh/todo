@@ -6,6 +6,7 @@ import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { useUserStore } from '@/lib/useUserStore';
 import { useTodoStore } from '@/lib/useTodoStore';
+import { useRouter } from 'next/navigation';
 
 type Task = {
     id: number;
@@ -22,8 +23,8 @@ export const Tasks = () => {
     const { user } = useUserStore();
     const { todos, loadTodo } = useTodoStore();
     const database = getDatabase(app);
+    const router = useRouter();
 
-    console.log(todos);
     const [filteredTasks, setFilteredTasks] = useState<{
         todo: Task[];
         doing: Task[];
@@ -47,7 +48,6 @@ export const Tasks = () => {
     };
 
     useEffect(() => {
-        console.log("run")
         getAllTasksForUser(user.userId)
         .then((snapshot) => {
         const tasksData = snapshot.val();
@@ -61,7 +61,7 @@ export const Tasks = () => {
     .catch((error) => {
         console.error("Error fetching tasks:", error);
     });
-    }, [])
+    }, [router])
 
     useEffect(() => {
         const todoTasks = todos.filter((task) => task.status === 'todo');
