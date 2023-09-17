@@ -1,0 +1,18 @@
+.tasks {
+    padding: 80px 40px 40px 40px;
+
+    &-layout {
+        display: flex;
+        gap: 36px;
+        justify-content: space-around;
+        min-height: calc(100vh - 120px);
+
+        &-section {
+            width: 33%;
+
+            &-cards {
+                margin-top: 32px;
+            }
+        }
+    }
+}
